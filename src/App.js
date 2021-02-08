@@ -6,17 +6,35 @@ function App() {
     {name:'Photoshop',price:'$90.99'},
     {name:'Illustrator', price:'$90.99'}
   ];
+
+  const persons = [
+    {name:'Alex', company:'Google'},
+    {name:'siri', company:'Apple'},
+    {name:'cortana', company:'Windows'}
+  ];
+
+  const person = persons.map(prop => prop.name)
+  const company = persons.map(prop => prop.company)
+  console.log(person)
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        {/* component from array of object */}
+        <ul>
+          {
+            persons.map(prop => <li>{prop.name}</li>)
+          }
+          <li>{person[0]}</li>
+        </ul>
         <p>I'm a React Person</p>
         <Product product={products[0]}></Product>
         <Product product={products[1]}></Product>
         
-        <Person name="Alex" age="15"></Person>
-        <Person name="John" age="20"></Person>
-        <Person name="Siri" age="30" device="iPhone"></Person>
+        <Person name={person[0]} company={company[0]}></Person>
+        <Person name={person[1]} company={company[1]}></Person>
+        <Person name={person[2]} company={company[2]}></Person>
+
       </header>
     </div>
   );
@@ -48,7 +66,7 @@ function Person (props) {
   return (
     <div style = {styleT}>
       <h2>Name: {props.name}</h2>
-      <h3>Age: {props.age}</h3>
+      <h3>Company: {props.company}</h3>
     </div>
   ) 
 }
