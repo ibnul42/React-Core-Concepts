@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
 
 function App() {
   const products = [
@@ -20,6 +21,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <Counter></Counter>
         {/* component from array of object */}
         <ul>
           {
@@ -69,6 +71,15 @@ function Person (props) {
       <h3>Company: {props.company}</h3>
     </div>
   ) 
+}
+
+function Counter() {
+  const [count, setCount] = useState(10);
+  return (
+    <div>
+    <h1>Count: {count}</h1>
+    </div>
+  )
 }
 
 export default App;
